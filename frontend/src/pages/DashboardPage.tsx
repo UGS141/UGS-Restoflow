@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import { Sparkles, TrendingUp, Users, Clock, AlertTriangle, Layers, CreditCard, Search, Bell, Send, ArrowUpRight, ArrowDownRight, Calendar, UserCheck, Flame, Shield, CheckCircle, ChevronRight, Zap } from 'lucide-react'
+import Logo from '../components/Logo'
 
 // --- Types & Structures ---
 
@@ -151,13 +152,16 @@ export default function DashboardPage() {
       {/* Top Premium Toolbar */}
       <header className="border-b border-zinc-900 bg-zinc-950/70 backdrop-blur-md px-6 py-4 flex items-center justify-between sticky top-0 z-30 select-none">
         {/* Left Search input (triggers cmd palette) */}
-        <button 
-          onClick={() => setCmdPaletteOpen(true)}
-          className="bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-850 rounded-xl px-3.5 py-2 text-xs text-zinc-500 flex items-center gap-2.5 transition-colors w-64"
-        >
-          <Search className="w-3.5 h-3.5" />
-          <span>Search or Ctrl+K...</span>
-        </button>
+        <div className="flex items-center gap-4">
+          <Logo className="w-6 h-6" />
+          <button 
+            onClick={() => setCmdPaletteOpen(true)}
+            className="bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-850 rounded-xl px-3.5 py-2 text-xs text-zinc-500 flex items-center gap-2.5 transition-colors w-64"
+          >
+            <Search className="w-3.5 h-3.5" />
+            <span>Search or Ctrl+K...</span>
+          </button>
+        </div>
 
         {/* Inner Sub-navigation tabs */}
         <nav className="flex items-center gap-1 overflow-x-auto max-w-xl mx-4">

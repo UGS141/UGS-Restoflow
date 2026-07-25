@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuthStore, UserRole } from '../store/authStore'
 import { Shield, Sparkles, Key, Mail, Terminal, Database } from 'lucide-react'
+import Logo from '../components/Logo'
 
 export default function LoginPage() {
   const { setSession } = useAuthStore()
@@ -140,9 +141,7 @@ export default function LoginPage() {
       <div className="w-full max-w-[450px] relative z-10">
         {/* Brand header */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-violet-500 flex items-center justify-center shadow-lg shadow-brand-500/20 mb-3 border border-brand-500/30">
-            <Shield className="w-6 h-6 text-white" />
-          </div>
+          <Logo className="w-16 h-16 mb-2" />
           <h1 className="text-3xl font-bold tracking-tight font-sans bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">
             UGS-Restoflow
           </h1>

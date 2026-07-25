@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import { Shield, Users, CreditCard, Sparkles, Plus, ToggleLeft, ToggleRight, Database, Settings, Mail, Bell, Activity, RefreshCw, AlertTriangle, CheckCircle, Search, Filter, MessageSquare, MapPin, Globe, Server, UserCheck, HardDrive, Key, BarChart, ChevronRight } from 'lucide-react'
+import Logo from '../components/Logo'
 
 // --- Types & Interfaces ---
 
@@ -278,9 +279,7 @@ export default function SuperAdminPage() {
         <div className="space-y-8">
           {/* UGS IT Solutions Logo block */}
           <div className="flex items-center gap-3 px-1">
-            <div className="w-8 h-8 rounded-lg bg-[#5B5CEB] flex items-center justify-center border border-[#5B5CEB]/20 shadow-sm">
-              <Shield className="w-4 h-4 text-white" />
-            </div>
+            <Logo className="w-8 h-8" />
             <div>
               <span className="font-bold text-[#111827] tracking-tight text-sm block">UGS IT Solutions</span>
               <span className="text-[9px] text-[#6B7280] block uppercase tracking-wider font-mono">SaaS Engine Panel</span>

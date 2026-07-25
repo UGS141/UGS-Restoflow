@@ -16,6 +16,7 @@ import AuditPage from './pages/AuditPage'
 import SettingsPage from './pages/SettingsPage'
 import DashboardPage from './pages/DashboardPage'
 import { Shield, Sparkles, LogOut, Database, Layers, Flame, CreditCard, BookOpen, Scale, Users, FileText, Printer, Landmark, Settings, TrendingUp } from 'lucide-react'
+import Logo from './components/Logo'
 
 type TabName = 'dashboard' | 'pos' | 'layout' | 'kds' | 'menu' | 'inventory' | 'crm' | 'reports' | 'printers' | 'finance' | 'audit' | 'settings' | 'superadmin'
 
@@ -60,9 +61,7 @@ export default function App() {
         <div className="space-y-8">
           {/* Brand header */}
           <div className="flex items-center gap-2.5 px-1">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-violet-500 flex items-center justify-center border border-brand-500/30 shadow-md">
-              <span className="font-bold text-sm text-white">R</span>
-            </div>
+            <Logo className="w-8 h-8" />
             <div>
               <span className="font-bold text-zinc-200 tracking-tight text-sm block leading-none">UGS-Restoflow</span>
               <span className="text-[9px] text-zinc-500 mt-1 block uppercase tracking-wider font-mono">Restaurant OS</span>
