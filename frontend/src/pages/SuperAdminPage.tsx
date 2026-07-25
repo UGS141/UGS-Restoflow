@@ -232,6 +232,44 @@ export default function SuperAdminPage() {
     showToast(`Ticket status updated to ${status.toUpperCase()}`)
   }
 
+  const handleToggleFeature = (tenantId: string, flag: string) => {
+    setRestaurants(prev => prev.map(t => {
+      if (t.id === tenantId) {
+        const updatedFlags = { ...t.featureFlags, [flag]: !t.featureFlags[flag] }
+        const updated = { ...t, featureFlags: updatedFlags }
+        if (selectedTenant?.id === tenantId) {
+          setSelectedTenant(updated)
+        }
+        return updated
+      }
+      return t
+    }))
+    showToast('Tenant feature flags updated!')
+  }
+
+  const handleToggleSuspend = (tenantId: string) => {
+    setRestaurants(prev => prev.map(t => {
+      if (t.id === tenantId) {
+        const nextStatus = t.status === 'suspended' ? 'active' : 'suspended'
+        const updated = { ...t, status: nextStatus as any }
+        if (selectedTenant?.id === tenantId) {
+          setSelectedTenant(updated)
+        }
+        return updated
+      }
+      return t
+    }))
+    showToast('Tenant operational status toggled!')
+  }
+
+  const handleSendBroadcast = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!broadTitle || !broadMsg) return
+    showToast(`Broadcast sent to ${broadTarget} tenants via push notifications!`)
+    setBroadTitle('')
+    setBroadMsg('')
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 flex flex-col font-sans text-zinc-100">
       {/* Top Header */}
