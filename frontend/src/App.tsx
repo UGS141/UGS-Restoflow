@@ -15,10 +15,11 @@ import FinancePage from './pages/FinancePage'
 import AuditPage from './pages/AuditPage'
 import SettingsPage from './pages/SettingsPage'
 import DashboardPage from './pages/DashboardPage'
-import { Shield, Sparkles, LogOut, Database, Layers, Flame, CreditCard, BookOpen, Scale, Users, FileText, Printer, Landmark, Settings, TrendingUp } from 'lucide-react'
+import EnterpriseHubPage from './pages/EnterpriseHubPage'
+import { Shield, Sparkles, LogOut, Database, Layers, Flame, CreditCard, BookOpen, Scale, Users, FileText, Printer, Landmark, Settings, TrendingUp, Zap } from 'lucide-react'
 import Logo from './components/Logo'
 
-type TabName = 'dashboard' | 'pos' | 'layout' | 'kds' | 'menu' | 'inventory' | 'crm' | 'reports' | 'printers' | 'finance' | 'audit' | 'settings' | 'superadmin'
+type TabName = 'dashboard' | 'enterprise' | 'pos' | 'layout' | 'kds' | 'menu' | 'inventory' | 'crm' | 'reports' | 'printers' | 'finance' | 'audit' | 'settings' | 'superadmin'
 
 export default function App() {
   const { user, logout, completeSetup } = useAuthStore()
@@ -80,6 +81,18 @@ export default function App() {
             >
               <TrendingUp className="w-4 h-4" />
               <span>Real-Time Dashboard</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('enterprise')}
+              className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+                activeTab === 'enterprise'
+                  ? 'bg-brand-500/10 text-brand-400 border border-brand-500/20'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'
+              }`}
+            >
+              <Zap className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-300 font-bold">Enterprise Hub</span>
             </button>
 
             <button
@@ -241,6 +254,7 @@ export default function App() {
       {/* Main viewport area */}
       <main className="flex-1 flex flex-col min-w-0 relative">
         {activeTab === 'dashboard' && <DashboardPage />}
+        {activeTab === 'enterprise' && <EnterpriseHubPage />}
         {activeTab === 'pos' && <POSBillingPage />}
         {activeTab === 'layout' && <LayoutBuilderPage />}
         {activeTab === 'kds' && <KDSPage />}
