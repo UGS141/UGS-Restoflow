@@ -50,14 +50,38 @@ export default function LoginPage() {
     } catch (err) {
       // Offline fallback login for Vercel/mock preview environments
       console.warn("FastAPI database server is unreachable. Initializing offline preview session.")
+      
+      let resolvedRole: UserRole = 'owner'
+      let resolvedName = 'Rohan Mehta (Offline Preview)'
+      let resolvedSetupComplete = false
+
+      if (email.includes('admin')) {
+        resolvedRole = 'super_admin'
+        resolvedName = 'Priya Sharma (Platform Admin)'
+        resolvedSetupComplete = true
+      } else if (email.includes('cashier')) {
+        resolvedRole = 'cashier'
+        resolvedName = 'Karan Singh (POS Cashier)'
+      } else if (email.includes('chef') || email.includes('kitchen')) {
+        resolvedRole = 'kitchen'
+        resolvedName = 'Chef Sanjay (KDS Chef)'
+      } else if (email.includes('accountant')) {
+        resolvedRole = 'accountant'
+        resolvedName = 'Neha Sen (Finance Lead)'
+      } else if (email.includes('waiter')) {
+        resolvedRole = 'waiter'
+        resolvedName = 'Rahul Dev (Server)'
+      }
+
       setSession(
         {
           email: email || 'owner@gourmetgarden.com',
-          fullName: 'Rohan Mehta (Offline Preview)',
-          role: 'owner' as UserRole,
-          tenantId: 'ten_demo',
-          branchId: 'br_main',
+          fullName: resolvedName,
+          role: resolvedRole,
+          tenantId: resolvedRole === 'super_admin' ? 'platform' : 'ten_demo',
+          branchId: resolvedRole === 'super_admin' ? 'platform' : 'br_main',
           isActive: true,
+          setupComplete: resolvedSetupComplete
         },
         'mock_access_token_123',
         'mock_refresh_token_123',
