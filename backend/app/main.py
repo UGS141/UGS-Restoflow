@@ -124,6 +124,7 @@ from app.api.v1.reports.routes import router as reports_router
 from app.api.v1.printers.routes import router as printers_router
 from app.api.v1.finance.routes import router as finance_router
 from app.api.v1.audit.routes import router as audit_router
+from app.api.v1.platform.routes import router as platform_router
 
 app.include_router(auth_router, prefix=f"{settings.API_V1_STR}/auth", tags=["Auth"])
 app.include_router(tenant_router, prefix=f"{settings.API_V1_STR}/tenant", tags=["Tenant"])
@@ -136,6 +137,7 @@ app.include_router(reports_router, prefix=f"{settings.API_V1_STR}/reports", tags
 app.include_router(printers_router, prefix=f"{settings.API_V1_STR}/printers", tags=["Printers"])
 app.include_router(finance_router, prefix=f"{settings.API_V1_STR}/finance", tags=["Finance"])
 app.include_router(audit_router, prefix=f"{settings.API_V1_STR}/audit", tags=["Audit"])
+app.include_router(platform_router, prefix=f"{settings.API_V1_STR}/platform", tags=["Platform"])
 
 # WebSocket endpoint
 from fastapi import WebSocket, WebSocketDisconnect

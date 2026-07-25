@@ -39,13 +39,17 @@ export default function App() {
     return <SuperAdminPage />
   }
 
-  // 3. For Cashiers and Kitchen staff, lock navigation to their specific tasks
+  // 3. For Cashiers, Kitchen, and Accountants, lock navigation to their specific tasks
   if (user.role === 'cashier') {
     return <POSBillingPage />
   }
 
   if (user.role === 'kitchen') {
     return <KDSPage />
+  }
+
+  if (user.role === 'accountant') {
+    return <FinancePage />
   }
 
   // Owners and Managers have access to the modular dashboard sidebar layout
