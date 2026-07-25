@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Sparkles, Zap, Shield, GitPullRequest, Settings, Terminal, FileText, CheckSquare, Calendar, Phone, Activity, Heart, RefreshCw, Key, ToggleLeft, ToggleRight, Trash2, Check, X, Plus } from 'lucide-react'
+import { Sparkles, Zap, Shield, GitPullRequest, Settings, Terminal, FileText, CheckSquare, Calendar, Phone, Activity, Heart, RefreshCw, Key, ToggleLeft, ToggleRight, Trash2, Check, X, Plus, Mail, CheckCircle } from 'lucide-react'
 
 // --- Types & Interfaces ---
 
