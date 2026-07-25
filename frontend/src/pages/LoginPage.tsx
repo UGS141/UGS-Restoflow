@@ -196,6 +196,43 @@ export default function LoginPage() {
               {loading ? 'Verifying Credentials...' : 'Sign In'}
             </button>
           </form>
+
+          {/* Quick Demo Access Channels */}
+          <div className="mt-6 border-t border-zinc-900 pt-5">
+            <span className="text-[10px] text-zinc-550 font-bold uppercase tracking-wider block mb-3 text-center">Fast Login Channels</span>
+            <div className="grid grid-cols-2 gap-2">
+              <button 
+                onClick={() => handleSimulatedLogin('super_admin')}
+                className="bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 text-[10px] py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors"
+              >
+                SaaS Admin Portal
+              </button>
+              <button 
+                onClick={() => handleSimulatedLogin('owner')}
+                className="bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 text-[10px] py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors"
+              >
+                Resto Owner
+              </button>
+              <button 
+                onClick={() => handleSimulatedLogin('cashier')}
+                className="bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 text-[10px] py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors"
+              >
+                POS Cashier
+              </button>
+              <button 
+                onClick={() => handleSimulatedLogin('kitchen')}
+                className="bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 text-[10px] py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors"
+              >
+                Kitchen KDS
+              </button>
+              <button 
+                onClick={() => handleSimulatedLogin('accountant')}
+                className="bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800 text-[10px] py-2.5 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors col-span-2"
+              >
+                Accountant Shift Drawer
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import { Shield, Users, CreditCard, Sparkles, Plus, ToggleLeft, ToggleRight, Database, Settings, Mail, Bell, Activity, RefreshCw, AlertTriangle, CheckCircle, Search, Filter, MessageSquare, MapPin, Globe, Server, UserCheck, HardDrive, Key, BarChart, ChevronRight } from 'lucide-react'
+import { Shield, Users, CreditCard, Sparkles, Plus, ToggleLeft, ToggleRight, Database, Settings, Mail, Bell, Activity, RefreshCw, AlertTriangle, CheckCircle, Search, Filter, MessageSquare, MapPin, Globe, Server, UserCheck, HardDrive, Key, BarChart, ChevronRight, LogOut } from 'lucide-react'
 import Logo from '../components/Logo'
+import { useAuthStore } from '../store/authStore'
 
 // --- Types & Interfaces ---
 
@@ -305,7 +306,7 @@ export default function SuperAdminPage() {
         </div>
 
         {/* Footer Profile info */}
-        <div className="border-t border-[#E8EAF0] pt-4 space-y-3">
+        <div className="border-t border-[#E8EAF0] pt-4 space-y-4">
           <div className="flex items-center gap-3 px-1">
             <div className="w-8 h-8 rounded-full bg-[#F5F7FB] border border-[#E8EAF0] flex items-center justify-center text-xs font-bold text-[#5B5CEB] uppercase">
               A
@@ -315,6 +316,13 @@ export default function SuperAdminPage() {
               <span className="text-[9px] text-[#6B7280] block uppercase tracking-wider mt-0.5">Platform Admin</span>
             </div>
           </div>
+          <button
+            onClick={() => useAuthStore.getState().logout()}
+            className="w-full bg-[#F5F7FB] hover:bg-red-50 text-[#6B7280] hover:text-red-650 rounded-xl py-2.5 text-xs font-semibold flex items-center justify-center gap-2 transition-all border border-[#E8EAF0] hover:border-red-100 active:scale-[0.98]"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Sign Out Platform</span>
+          </button>
         </div>
       </aside>
 

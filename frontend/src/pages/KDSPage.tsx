@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAuthStore } from '../store/authStore'
-import { Flame, Clock, CheckCircle2, Play, Bell, AlertTriangle, CheckCircle } from 'lucide-react'
+import { Flame, Clock, CheckCircle2, Play, Bell, AlertTriangle, CheckCircle, LogOut } from 'lucide-react'
 
 interface KDSItem {
   name: string
@@ -50,7 +50,7 @@ const INITIAL_TICKETS: KDSTicket[] = [
 ]
 
 export default function KDSPage() {
-  const { user } = useAuthStore()
+  const { user, logout } = useAuthStore()
   const [tickets, setTickets] = useState<KDSTicket[]>(INITIAL_TICKETS)
   const [tick, setTick] = useState(0) // Forces component timer updates every second
   const [soundEnabled, setSoundEnabled] = useState(true)
@@ -151,8 +151,6 @@ export default function KDSPage() {
         </div>
 
         <div className="flex items-center gap-4">
-
-
           {/* Toggle Audio Bleeps */}
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
@@ -163,6 +161,14 @@ export default function KDSPage() {
             }`}
           >
             {soundEnabled ? 'Audio Alerts: ON' : 'Audio Alerts: OFF'}
+          </button>
+
+          <button
+            onClick={logout}
+            className="bg-[#1C1C1E] hover:bg-zinc-800 border border-zinc-800 p-2.5 rounded-xl text-zinc-400 hover:text-red-400 transition-colors active:scale-[0.98]"
+            title="Sign Out KDS Session"
+          >
+            <LogOut className="w-4 h-4" />
           </button>
         </div>
       </header>

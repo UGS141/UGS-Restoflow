@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { DollarSign, Landmark, Plus, ArrowUpRight, ArrowDownRight, Clipboard, CheckCircle, RefreshCw } from 'lucide-react'
+import { DollarSign, Landmark, Plus, ArrowUpRight, ArrowDownRight, Clipboard, CheckCircle, RefreshCw, LogOut } from 'lucide-react'
+import { useAuthStore } from '../store/authStore'
 
 interface CashRegisterState {
   status: 'open' | 'closed'
@@ -24,6 +25,7 @@ const INITIAL_TXS: FinTransaction[] = [
 ]
 
 export default function FinancePage() {
+  const { logout } = useAuthStore()
   const [register, setRegister] = useState<CashRegisterState>({ status: 'closed', opening_balance: 0, cash_in_hand: 0 })
   const [txs, setTxs] = useState<FinTransaction[]>(INITIAL_TXS)
   
@@ -103,6 +105,14 @@ export default function FinancePage() {
           <Landmark className="w-5 h-5 text-brand-500" />
           <h1 className="font-semibold text-zinc-200 tracking-tight">Finance, Ledgers & Expenses</h1>
         </div>
+
+        <button
+          onClick={logout}
+          className="bg-[#1C1C1E] hover:bg-zinc-800 border border-zinc-800 p-2.5 rounded-xl text-zinc-400 hover:text-red-400 transition-colors active:scale-[0.98]"
+          title="Sign Out Accountant Session"
+        >
+          <LogOut className="w-4 h-4" />
+        </button>
       </header>
 
       <main className="flex-1 p-6 grid grid-cols-1 xl:grid-cols-3 gap-6 overflow-y-auto">
